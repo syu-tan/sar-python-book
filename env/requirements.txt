@@ -1,0 +1,24 @@
+# basic
+numpy
+matplotlib
+opencv-python
+scipy
+tqdm
+joblib
+
+# jupyter
+jupyterlab
+
+# satellite
+snaphu
+sarpy
+
+# gis
+# gdal ## conda: gdal
+tifffile
+rasterio
+leafmap
+
+# vizualize
+windrose
+seaborn
