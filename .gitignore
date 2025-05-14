@@ -1,5 +1,8 @@
-# 
+# data
+data/sakurazima/ALPSRP*
 
+# output
+src/output/
 
 # movie frames
 src/chapter_01/section_01/03/frames

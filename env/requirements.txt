@@ -6,6 +6,11 @@ scipy
 tqdm
 joblib
 
+# machine learning
+segmentation-models-pytorch
+torch
+kornia
+
 # jupyter
 jupyterlab
 
