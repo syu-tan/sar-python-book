@@ -19,7 +19,7 @@ snaphu
 sarpy
 
 # gis
-# gdal ## conda: gdal
+pygdal==3.0.4.10
 tifffile
 rasterio
 leafmap
