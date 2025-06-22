@@ -1,6 +1,6 @@
 # 📕 書籍 *SAR衛星データ解析入門* の Githubレポジトリ
 
-[日本語](https://github.com/syu-tan/sar-python-book/blob/main/README.md) | [English](TODO: English の README)
+[日本語](https://github.com/syu-tan/sar-python-book/blob/main/README.md) | [English](doc/READM_en.md)
 
 
 TODO: 書籍の追加
