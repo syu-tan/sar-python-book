@@ -207,6 +207,7 @@ class ALOSPALSARData(object):
                         IMG.read(rec))
                     _slc = np.array(_slc, dtype=np.float32)
                     slc[_nline * len(_slc):(_nline + 1) * len(_slc)] = _slc
+                    ## TODO: CEOS読み込みの記事の並列高速読み込みの適用
 
             slc = slc.reshape(-1, rq)
             slc = slc[:, int(self.constant.IMG_PREFIX / 4):]
