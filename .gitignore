@@ -1,5 +1,9 @@
 # data
 data/sakurazima/ALPSRP*/IMG-*
+data/sakurazima/ALPSRP*/TRL-*
+data/sakurazima/ALPSRP*/VOL-*
+data/sakurazima/*__A/*.txt
+data/sakurazima/*__A/*.jpg
 
 # output
 src/output/
