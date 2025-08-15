@@ -14,6 +14,7 @@ def wrap_phase(src, scale=np.pi):
     # modulate phase to [-scale, scale]
     return (src + scale) % (2 * scale) - scale
 
+
 def to8bit(img, amp=False):
     
     if amp:
@@ -32,7 +33,7 @@ def coregistration_phase_only_correlation(
     H_A, W_A = clx_m.shape[:2]
     
     # cutting
-    clx_s = clx_s[s_top_cut:H_A-s_bottom_cut, s_left_cut:W_A-s_right_cut]
+    clx_s = clx_s[s_top_cut:H_A - s_bottom_cut, s_left_cut:W_A - s_right_cut]
     
     # paddigment
     clx_s = np.pad(clx_s, ((s_top_pad, s_bottom_pad), (s_left_pad, s_right_pad)), 'constant', constant_values=0)
@@ -47,17 +48,17 @@ def coregistration_phase_only_correlation(
     H_D, W_D = difference
 
     if W_D < 0 and H_D >= 0:
-        W_D_ROUND = round(W_D)-1
+        W_D_ROUND = round(W_D) - 1
         H_D_ROUND = round(H_D)
-        h_slice, w_slice = slice(H_D_ROUND, H_A), slice(0, W_D_ROUND+W_A)
+        h_slice, w_slice = slice(H_D_ROUND, H_A), slice(0, W_D_ROUND + W_A)
     elif W_D < 0 and H_D < 0:
-        W_D_ROUND = round(W_D)-1
-        H_D_ROUND = round(H_D)-1
-        h_slice, w_slice = slice(0, H_D_ROUND+H_A), slice(0, W_D_ROUND+W_A)
+        W_D_ROUND = round(W_D) - 1
+        H_D_ROUND = round(H_D) - 1
+        h_slice, w_slice = slice(0, H_D_ROUND + H_A), slice(0, W_D_ROUND + W_A)
     elif W_D >= 0 and H_D < 0:
         W_D_ROUND = round(W_D)
-        H_D_ROUND = round(H_D)-1
-        h_slice, w_slice = slice(0, H_D_ROUND+H_A), slice(W_D_ROUND, W_A)
+        H_D_ROUND = round(H_D) - 1
+        h_slice, w_slice = slice(0, H_D_ROUND + H_A), slice(W_D_ROUND, W_A)
     elif W_D >= 0 and H_D >= 0:
         W_D_ROUND = round(W_D)
         H_D_ROUND = round(H_D)
@@ -76,9 +77,10 @@ def coregistration_phase_only_correlation(
     clx_s = sigma_s_cut * np.exp(1j * phase_s_cut)
     return clx_m, clx_s, difference
 
+
 def coregistoration_homograhpy(
         img_m, img_s,
-        max_pts=500, 
+        max_pts=500,
         good_match_rate=0.6,
         ):
     
@@ -100,8 +102,9 @@ def coregistoration_homograhpy(
     homograpy, _ = cv2.findHomography(dst_pts, src_pts, cv2.RANSAC)
     return homograpy, (kp_m, kp_s), matches_good
 
+
 def coregistoration_homomorphpy_cfloat(clx_m, clx_s,
-                                       max_pts=500, 
+                                       max_pts=500,
                                        good_match_rate=0.6,
                                        select_match=30,
                                        ):
@@ -126,17 +129,16 @@ def coregistoration_homomorphpy_cfloat(clx_m, clx_s,
     return clx_dst_s, img_matches
 
 
-def coherence_cell(clx_m, clx_s, i, eps=1e-2):
+def coherence_cell(clx_m, clx_s, eps=1e-2):
+    clx_m = clx_m.flatten()
+    clx_s = clx_s.flatten()
     
-    sum1, sum2, sum3 = 0.0, 0.0, 0.0
-    for i in range(len(clx_m)):
-        m = clx_m[i]
-        s = clx_s[i]
-        sum1 += m * np.conj(s)
-        sum2 += np.abs(m) ** 2
-        sum3 += np.abs(s) ** 2
+    sum1 = (clx_m * np.conj(clx_s)).mean()
+    sum2 = (np.abs(clx_m) ** 2).mean()
+    sum3 = (np.abs(clx_s) ** 2).mean()
+    
+    return np.abs(sum1) / (np.sqrt(sum2 * sum3) + eps)
 
-    return np.abs(sum1).mean() / (np.sqrt(sum2 * sum3).mean() + eps)
 
 def coherence_single_process(clx_m, clx_s, patch_size=2):
     
@@ -146,13 +148,13 @@ def coherence_single_process(clx_m, clx_s, patch_size=2):
 
     for i in tqdm(range(clx_m.shape[0]), desc='Computing coherence...', total=clx_m.shape[0], ncols=80):
         for j in range(clx_m.shape[1]):
-            if i == 0 or i == clx_m.shape[0]-1 or j == 0 or j == clx_m.shape[1]-1:
+            if i == 0 or i == clx_m.shape[0] - 1 or j == 0 or j == clx_m.shape[1] - 1:
                 coh[i, j] = 0
                 continue
             coh[i, j] = coherence_cell(
-                clx_m[i-patch_size:i+patch_size, j-patch_size:j+patch_size], 
-                clx_s[i-patch_size:i+patch_size, j-patch_size:j+patch_size],
-                i,)
+                clx_m[i - patch_size:i + patch_size, j - patch_size:j + patch_size],
+                clx_s[i - patch_size:i + patch_size, j - patch_size:j + patch_size],
+                )
     return coh
 
 
@@ -170,13 +172,12 @@ def coherence_multi_process(clx_m, clx_s, patch_size=2, n_jobs=8):
         coh_pl = np.zeros((W_COH), dtype=np.float32)
         
         for j in range(W_COH):
-            if i < PATCH_SZIE or i >= H_COH-PATCH_SZIE or j < PATCH_SZIE or j >= W_COH-PATCH_SZIE:
+            if i < PATCH_SZIE or i >= H_COH - PATCH_SZIE or j < PATCH_SZIE or j >= W_COH - PATCH_SZIE:
                 coh_pl[j] = 0
                 continue
             coh_pl[j] = coherence_cell(
-                clx_m[i-PATCH_SZIE:i+PATCH_SZIE, j-PATCH_SZIE:j+PATCH_SZIE],
-                clx_s[i-PATCH_SZIE:i+PATCH_SZIE, j-PATCH_SZIE:j+PATCH_SZIE],
-                i,
+                clx_m[i - PATCH_SZIE:i + PATCH_SZIE, j - PATCH_SZIE:j + PATCH_SZIE],
+                clx_s[i - PATCH_SZIE:i + PATCH_SZIE, j - PATCH_SZIE:j + PATCH_SZIE],
                 )
             
         return (i, coh_pl)
@@ -190,6 +191,7 @@ def coherence_multi_process(clx_m, clx_s, patch_size=2, n_jobs=8):
     coh = np.stack([x[1] for x in list_coh], axis=0)
     return coh
 
+
 def interferogram(clx_m, clx_s):
     """ Interferogram function """
     return np.angle(clx_m * np.conj(clx_s))
@@ -197,12 +199,14 @@ def interferogram(clx_m, clx_s):
 
 def orbital_stripe(sr_m, sr_s, wave_length):
     """ Orbital Stripe Function """
-    stripe = wrap_phase(np.divide(4*np.pi*(sr_s - sr_m), wave_length))
+    stripe = wrap_phase(np.divide(4 * np.pi * (sr_s - sr_m), wave_length))
     return stripe
+
 
 def get_slant_range(xyz_orbit, xyz_location, index_line):
     slant_range = np.linalg.norm(xyz_orbit[index_line,:] - xyz_location, axis=2, keepdims=True)
-    return slant_range[:,:,0] # (H, W, 1) -> (H, W)
+    return slant_range[:,:, 0]  # (H, W, 1) -> (H, W)
+
 
 def get_angle_vectors(v1, v2, eps=1e-2):
     dot_product = np.sum(v1 * v2, axis=-1)
@@ -218,6 +222,7 @@ def get_angle_vectors(v1, v2, eps=1e-2):
     angle_rad = np.arccos(cos_angle)
     return angle_rad
 
+
 def slide_dem(r1_h, dem):
     """ Slide DEM Function """
     assert r1_h.shape == dem.shape, 'Input data have different shape'
@@ -229,9 +234,11 @@ def slide_dem(r1_h, dem):
         dem_slide[_idx_line] = f(np.linspace(0, 1, len(r1_range)))
     return dem_slide
 
+
 def get_topography(r1, r2, r1_h, r2_h, lam):
-    return  -wrap_phase(np.divide(
-        np.pi*np.square(4)*(r2-r1 - (r2_h-r1_h)), lam))
+    return -wrap_phase(np.divide(
+        np.pi * np.square(4) * (r2 - r1 - (r2_h - r1_h)), lam))
+
     
 def _convolve2d(image, kernel):
     shape = (image.shape[0] - kernel.shape[0] + 1, image.shape[1] - kernel.shape[1] + 1) + kernel.shape
@@ -239,16 +246,20 @@ def _convolve2d(image, kernel):
     strided_image = np.lib.stride_tricks.as_strided(image, shape, strides)
     return np.einsum('kl,ijkl->ij', kernel, strided_image)
 
+
 def _pad_singlechannel_image(image, kernel_shape, boundary):
     return np.pad(image, ((int(kernel_shape[0] / 2),), (int(kernel_shape[1] / 2),)), boundary)
+
 
 def convolve2d(image, kernel, boundary='edge'):
     # reference: https://qiita.com/aa_debdeb/items/e74eceb13ad8427b16c6
     pad_image = _pad_singlechannel_image(image, kernel.shape, boundary) if boundary is not None else image
     return _convolve2d(pad_image, kernel)
 
-def create_averaging_kernel(size = (5, 5)):
+
+def create_averaging_kernel(size=(5, 5)):
     return np.full(size, 1 / (size[0] * size[1]))
+
 
 def goldshtein_phase_filter(img, filter_kernel, alpha=0.5, patch_size=32):
     
@@ -267,7 +278,8 @@ def goldshtein_phase_filter(img, filter_kernel, alpha=0.5, patch_size=32):
     img = np.fft.ifft2(img_fft)
     return img
 
-def goldshtein_phase_filter_sliding_window(img, alpha=0.75, patch_size=32, step=1, filter_size = 3):
+
+def goldshtein_phase_filter_sliding_window(img, alpha=0.75, patch_size=32, step=1, filter_size=3):
     
     assert 0 < alpha <= 1, 'alpha must be greater than 0'
 
@@ -301,7 +313,7 @@ def goldshtein_phase_filter_sliding_window(img, alpha=0.75, patch_size=32, step=
             
             # phase enhancement filter
             patch_ = goldshtein_phase_filter(
-                img=patch, 
+                img=patch,
                 filter_kernel=filter_kernel, alpha=alpha,
                 patch_size=patch_size,
                 )
@@ -310,15 +322,15 @@ def goldshtein_phase_filter_sliding_window(img, alpha=0.75, patch_size=32, step=
             img_count[y_start:y_end, x_start:x_end] += 1
     
     #  mean pyramide
-    img_filter[:H, :W] /= (img_count[:H, :W] + 1e-2)
+    img_filter[:H,:W] /= (img_count[:H,:W] + 1e-2)
     
-    return img_filter[:H, :W]
+    return img_filter[:H,:W]
+
 
 def get_incident_angle(xyz_elev_loc, orb, idx_line):
     
-    orb_idx = orb[idx_line, :]
+    orb_idx = orb[idx_line,:]
     sla = orb_idx - xyz_elev_loc
     incident_angle = get_angle_vectors(sla, xyz_elev_loc)
     return incident_angle
-
 
