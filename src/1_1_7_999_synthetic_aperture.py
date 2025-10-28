@@ -44,7 +44,6 @@ os.makedirs(PATH_OUTPUT, exist_ok=True)
 
 
 PATH_CEOS_FOLDER = os.path.join("..", "data", "raw", "ALPSRP051270700-L1.0") # To folder containing the CEOS data
-PATH_CEOS_FOLDER = os.path.join("../../insar", "data", "raw", "ALPSRP051270700-L1.0") # To folder containing the CEOS data
 
 PATH_CEOS_DIRNAME = os.path.basename(PATH_CEOS_FOLDER)
 print(f'PALSAR SCENE ID: {PATH_CEOS_DIRNAME}')
