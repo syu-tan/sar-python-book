@@ -19,7 +19,6 @@ snaphu
 sarpy
 
 # gis
-pygdal==3.0.4.10
 tifffile
 rasterio
 leafmap
