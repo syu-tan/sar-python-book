@@ -1,5 +1,6 @@
 # basic
 numpy
+japanize-matplotlib
 matplotlib
 opencv-python
 scipy
@@ -22,6 +23,9 @@ sarpy
 tifffile
 rasterio
 leafmap
+xarray
+rioxarray
+
 
 # vizualize
 windrose
