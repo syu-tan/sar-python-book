@@ -1,5 +1,6 @@
 # basic
 numpy
+japanize-matplotlib
 matplotlib
 opencv-python
 scipy
@@ -19,10 +20,12 @@ snaphu
 sarpy
 
 # gis
-pygdal==3.0.4.10
 tifffile
 rasterio
 leafmap
+xarray
+rioxarray
+
 
 # vizualize
 windrose

@@ -18,11 +18,14 @@ RUN apt-get update --fix-missing && \
 RUN conda create -n sar-book python=3.9 -y && \
     conda clean -a -y
 
-# conda init をして .bashrc に必要な初期化コードを追加
-RUN /bin/bash -c "source /opt/conda/etc/profile.d/conda.sh && conda init bash"
+# GDAL は pip(pyGdal)ではなく conda-forge からインストール
+RUN /bin/bash -c "source /opt/conda/etc/profile.d/conda.sh && conda activate sar-book && \
+    conda install -y -c conda-forge gdal && \
+    conda clean -a -y"
 
-# bash 起動時に自動で conda activate
-RUN echo "conda activate sar-book" >> ~/.bashrc
+# bash 起動時に自動で conda activate（conda 初期化も含める）
+RUN echo 'source /opt/conda/etc/profile.d/conda.sh' >> ~/.bashrc && \
+    echo 'conda activate sar-book' >> ~/.bashrc
 
 # requirements インストール
 COPY env/requirements.txt /tmp/requirements.txt
