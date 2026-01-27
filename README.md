@@ -2,15 +2,16 @@
 
 [日本語](https://github.com/syu-tan/sar-python-book/blob/main/README.md) | [English](doc/READM_en.md)
 
-![img](doc/figure/SARsatelliteDATA.jpg)
+![img](doc/figure/07_SAR-python-book.jpg)
 
 書籍「*SAR衛星データ解析入門*」の Python実装コードを管理する公式レポジトリです。本コードは、[ライセンス](./LICENSE)に従えば、無料で商用利用できます。
 
 
 # 🚀 書籍の紹介
 
-- 書籍は[講談社サイエンティフィク]()さんから頒布しております。
-- 著者による書籍自体の紹介記事は[こちら]()です。
+- 書籍は[講談社サイエンティフィク](https://www.kspub.co.jp/)さんから頒布しております。
+- 著者による書籍自体の紹介記事は[こちら](https://zenn.dev/syu_tan/articles/6136d824686784)です。
+- ご予約は[こちら](https://note.com/emmyeil/n/n2eba0e7df4f3?sub_rt=share_sb)です。
 
 # 🔍 関連記事
 書籍の公開記念記事の一覧です。
