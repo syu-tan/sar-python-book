@@ -1161,14 +1161,14 @@ if IS_PLOT:
 
 # # Vizualize 
 # 
-# intencity histgram
+# intensity histgram
 amp = np.abs(data_az[NUM_OFFICIALAXA_L11_AREA:-NUM_OFFICIALAXA_L11_AREA, :NUM_RANGE])
 amp_max = np.max(amp)
 print(f"Max Value: {amp_max}")
-intencity = 10*np.log10(amp**2)-10
+intensity = 10*np.log10(amp**2)-10
 # histgram plot
 plt.figure(figsize=(16, 4))
-plt.hist(intencity.flatten(), bins=100, range=(-30, 15), density=True)
+plt.hist(intensity.flatten(), bins=100, range=(-30, 15), density=True)
 plt.xlabel("Intensity [dB]")
 plt.ylabel("Density")
 plt.title("Intensity Histogram")
@@ -1180,13 +1180,13 @@ plt.clf();plt.close()
 
 
 # ## compressed image
-percentil_2 = np.percentile(intencity.flatten(), 2)
-percentil_95 = np.percentile(intencity.flatten(), 95)
+percentil_2 = np.percentile(intensity.flatten(), 2)
+percentil_95 = np.percentile(intensity.flatten(), 95)
 print(f"Percentile 2% >>> {percentil_2}, 95% >>> {percentil_95}")
 
 plt.figure(figsize=(24, 16), facecolor='w', edgecolor='k', dpi=160)
 plt.title(f'ALOS PALSAR Focus Intensity Image {CREDIT}', fontsize=20)
-plt.imshow(intencity, vmax=percentil_95, vmin=percentil_2, aspect='auto')
+plt.imshow(intensity, vmax=percentil_95, vmin=percentil_2, aspect='auto')
 plt.colorbar(shrink=0.6)
 plt.tight_layout()
 plt.savefig(os.path.join(PATH_OUTPUT, 'intensity.png'))
