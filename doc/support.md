@@ -22,14 +22,42 @@
 | P.149 | **図1.5.88** 凡例: `Observation` | **図1.5.88** 凡例: `Obsevation` |
 | P.150 | **図1.5.89** 凡例: `Observation` | **図1.5.89** 凡例: `Obsevation` |
 | P.152 | **図1.5.91** 凡例: `Terrain` | **図1.5.91** 凡例: `Terran` |
-| P.221 | `img_clip` の行のインデント修正 | コードのインデント不備 
-<pre><code class="language-python"> 
-transform = rio.windows.transform(window, src.transform)
-out_meta.update({”driver”: ”GTiff”,”height”: window.height,”width”: window.width,”transform”: transform,”dtype”: ’float32’})
-img_clip = sigma[window.row_off:window.row_off+window.height, window.col_off:
-window.col_off+window.width]
-</code></pre> |
 | P.287 | **図3.4.20**（左）（右） タイトル: Interferogram Phase & Intensity | **図3.4.20**（左）（右） タイトル: Interferogrum Phase & Intency |
 | P.302 | **図3.4.50** 凡例: `Descending Difference Vector` | **図3.4.50** 凡例: `Dsscending Difference Vector` |
 | P.302 | **図3.4.51** 凡例: `Descending Difference Vector`, `Ascending Difference Vector Normal` | **図3.4.50** 凡例: `Dsscending Difference Vector`, `Ascending Difference Vector Notmal` |
 | P.302 | **図3.4.53** 凡例: `Descending Difference Vector`, `Ascending Difference Vector Normal`, `Quasi North-South Vector` | `Dsscending Difference Vector`, `Ascending Difference Vector Notmal`, `Quasi North-Sputh Vector` |
+
+## コードブロック
+
+P.221 の不正確なインデント
+
+### 正しい
+
+```python
+window = rio.windows.Window(col_off=2040, row_off=4100, width=230, height=220)
+transform = rio.windows.transform(window, src.transform)
+out_meta.update({
+    "driver": "GTiff",
+    "height": window.height,
+    "width": window.width,
+    "transform": transform,
+    "dtype": ’float32’})
+img_clip = sigma[window.row_off:window.row_off+window.height, window.col_off:
+window.col_off+window.width]
+```
+
+### 誤り
+```python
+window = rio.windows.Window(col_off=2040, row_off=4100, width=230, height=220)
+    transform = rio.windows.transform(window, src.transform)
+    out_meta.update({
+        "driver": "GTiff",
+        "height": window.height,
+        "width": window.width,
+        "transform": transform,"dtype": "float32"
+        })
+    img_clip = sigma[window.row_off:window.row_off+window.height, window.col_off:
+window.col_off+window.width]
+```
+
+
