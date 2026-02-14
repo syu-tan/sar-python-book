@@ -110,8 +110,8 @@
 
 - コードの問題でしたら、Gtihub Issue にお願いします。
 - 書籍についてであれば、[日本衛星データコミュニティ](https://zenn.dev/syu_tan/articles/593d27ec7f2de3) の質問チャンネルでお願いします。
-- お仕事やご相談は、Xやプロフィールからお問い合わせください。
-  安井：[X](https://x.com/emmyeil)、[プロフィール](https://syu-tan.github.io/)
+- お仕事やご相談は、Xやプロフィールからお問い合わせください。<br>
+  安井：[X](https://x.com/emmyeil)、[プロフィール](https://syu-tan.github.io/) <br>
   佐藤：[X](https://x.com/jp_consultant)
 
 ## *今後の SARの発展と利活用の推進になれば幸いです*
