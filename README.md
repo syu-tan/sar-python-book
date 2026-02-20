@@ -21,8 +21,7 @@
 
 
 # 🔍 関連記事
-書籍の公開記念記事の一覧です。
-
+書籍の[公開記念記事の一覧](https://note.com/emmyeil/n/n4f81338de296)です。
 
 
 # 💻 コードと章の対応
@@ -48,6 +47,8 @@
 |                           | 将来の展開              | ー                             | *(該当コードなし)*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | 付録                      |                         |                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |                           | フーリエ変換と相関処理  | 数学的背景と可視化             | <ul><li>[Appendix\_Fourier\_Transform\_ Correlation\_ Processing.ipynb](./src/Appendix_Fourier_Transform_Correlation_Processing.ipynb) </li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+関連記事で使用しているコードは、`_999` で対応しています。
 
 
 # ⚙️ 環境構築

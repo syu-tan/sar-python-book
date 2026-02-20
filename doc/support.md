@@ -41,7 +41,7 @@ out_meta.update({
     "height": window.height,
     "width": window.width,
     "transform": transform,
-    "dtype": ’float32’})
+    "dtype": "float32"})
 img_clip = sigma[window.row_off:window.row_off+window.height, window.col_off:
 window.col_off+window.width]
 ```
@@ -54,8 +54,8 @@ window = rio.windows.Window(col_off=2040, row_off=4100, width=230, height=220)
         "driver": "GTiff",
         "height": window.height,
         "width": window.width,
-        "transform": transform,"dtype": "float32"
-        })
+        "transform": transform,
+        "dtype": "float32"})
     img_clip = sigma[window.row_off:window.row_off+window.height, window.col_off:
 window.col_off+window.width]
 ```
