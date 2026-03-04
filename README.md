@@ -45,7 +45,7 @@
 |                           | SARプロバイダー         | ー                             | *(該当コードなし)*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |                           | 将来の展開              | ー                             | *(該当コードなし)*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | 付録                      |                         |                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|                           | フーリエ変換と相関処理  | 数学的背景と可視化             | <ul><li>[Appendix\_Fourier\_Transform\_ Correlation\_ Processing.ipynb](./src/Appendix_Fourier_Transform_%20Correlation_%20Processing.ipynb) </li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|                           | フーリエ変換と相関処理  | 数学的背景と可視化             | <ul><li>[Appendix\_Fourier\_Transform\_ Correlation\_ Processing.ipynb](./src/Appendix_Fourier_Transform_Correlation_Processing.ipynb) </li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 関連記事で使用しているコードは、`_999` で対応しています。
 
@@ -110,7 +110,8 @@
 
 - コードの問題でしたら、Gtihub Issue にお願いします。
 - 書籍についてであれば、[日本衛星データコミュニティ](https://zenn.dev/syu_tan/articles/593d27ec7f2de3) の質問チャンネルでお願いします。
-- お仕事やご相談は、[X](https://x.com/emmyeil)や[プロフィール](https://syu-tan.github.io/)からお問い合わせください。 TODO: 佐藤さんの追加
-
+- お仕事やご相談は、Xやプロフィールからお問い合わせください。<br>
+  安井：[X](https://x.com/emmyeil)、[プロフィール](https://syu-tan.github.io/) <br>
+  佐藤：[X](https://x.com/jp_consultant)
 
 ## *今後の SARの発展と利活用の推進になれば幸いです*
