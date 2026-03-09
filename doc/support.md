@@ -1,6 +1,14 @@
 # 書籍『SAR衛星データ解析入門』サポートページ
 
-本書をご利用いただきありがとうございます。現時点で判明している誤記・修正点を以下にまとめました。
+本書をご利用いただきありがとうございます。
+
+## 付録
+
+付録の章である**フーリエ変換と相関処理**については、[Github](../book/appendix.pdf)から無料で配布しております。
+
+## 正誤表
+
+現時点で判明している誤記・修正点を以下にまとめました。
 正誤表にない誤りや不具合、疑問点がありましたら、GitHubのIssueにてご連絡ください。
 
 - Issue: https://github.com/syu-tan/sar-python-book/issues
@@ -8,10 +16,7 @@
 
 最終更新日：2026年2月11日
 
-# 正誤表
-
-
-## 初版 / 第１刷
+### 初版 / 第１刷
 
 | ページ | 正しい | 誤り |
 | --- | --- | --- |
@@ -27,11 +32,11 @@
 | P.302 | **図3.4.51** 凡例: `Descending Difference Vector`, `Ascending Difference Vector Normal` | **図3.4.50** 凡例: `Dsscending Difference Vector`, `Ascending Difference Vector Notmal` |
 | P.302 | **図3.4.53** 凡例: `Descending Difference Vector`, `Ascending Difference Vector Normal`, `Quasi North-South Vector` | `Dsscending Difference Vector`, `Ascending Difference Vector Notmal`, `Quasi North-Sputh Vector` |
 
-## コードブロック
+### コードブロック
 
 P.221 の不正確なインデント
 
-### 正しい
+#### 正しい
 
 ```python
 window = rio.windows.Window(col_off=2040, row_off=4100, width=230, height=220)
@@ -46,7 +51,7 @@ img_clip = sigma[window.row_off:window.row_off+window.height, window.col_off:
 window.col_off+window.width]
 ```
 
-### 誤り
+#### 誤り
 ```python
 window = rio.windows.Window(col_off=2040, row_off=4100, width=230, height=220)
     transform = rio.windows.transform(window, src.transform)
