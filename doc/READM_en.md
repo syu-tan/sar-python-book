@@ -120,6 +120,32 @@ We welcome additional contributors—feel free to reach out!
 - For business inquiries, contact us via [X](https://x.com/emmyeil) or through the [author’s profile](https://syu-tan.github.io/).  
   TODO: Add contact for Mr. Satō
 
+## 🗞️ Citation
+
+If this book or repository helped your research or development, please cite the book as follows.
+
+## APA style
+
+Yasui, S., Sato, K., & Fujiwara, H. (2026). *SAR eisei data kaiseki nyumon [Introduction to SAR satellite data analysis]*. Kodansha. ISBN 978-4-06-540145-3.
+
+## IEEE style
+
+S. Yasui, K. Sato, and H. Fujiwara, *SAR eisei data kaiseki nyumon [Introduction to SAR Satellite Data Analysis]*. Tokyo, Japan: Kodansha, 2026.
+
+## BibTeX
+
+@book{yasui2026sar,
+  author    = {Yasui, Syusuke and Sato, Koichi and Fujiwara, Hiroaki},
+  title     = {{SAR eisei data kaiseki nyumon [Introduction to SAR Satellite Data Analysis]}},
+  publisher = {Kodansha},
+  year      = {2026},
+  address   = {Tokyo, Japan},
+  isbn      = {978-4-06-540145-3},
+  series    = {KS Joho Kagaku Senmonsho},
+  language  = {Japanese},
+  url       = {https://www.kspub.co.jp/book/detail/5401453.html}
+}
+
 ---
 
 ## *We hope this repository advances the development and practical use of SAR.*

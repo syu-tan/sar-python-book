@@ -118,7 +118,7 @@
   安井：[X](https://x.com/emmyeil)、[プロフィール](https://syu-tan.github.io/) <br>
   佐藤：[X](https://x.com/jp_consultant)
 
-# 🗞️　引用
+# 🗞️　引用 (Citation)
 
 もし皆様のお役に立てた場合は、引用などは以下を掲載して頂けると幸甚です。
 
@@ -126,4 +126,28 @@
 安井秀輔,佐藤功一,藤原寛朗. SAR衛星データ解析入門, 講談社, 2026-02-25, (KS情報科学専門書).
 ```
 
-## *今後の SARの発展と利活用の推進になれば幸いです*
+If this book or repository helped your research or development, please cite the book as follows.
+
+## APA style
+
+Yasui, S., Sato, K., & Fujiwara, H. (2026). *SAR eisei data kaiseki nyumon [Introduction to SAR satellite data analysis]*. Kodansha. ISBN 978-4-06-540145-3.
+
+## IEEE style
+
+S. Yasui, K. Sato, and H. Fujiwara, *SAR eisei data kaiseki nyumon [Introduction to SAR Satellite Data Analysis]*. Tokyo, Japan: Kodansha, 2026.
+
+## BibTeX
+
+@book{yasui2026sar,
+  author    = {Yasui, Syusuke and Sato, Koichi and Fujiwara, Hiroaki},
+  title     = {{SAR eisei data kaiseki nyumon [Introduction to SAR Satellite Data Analysis]}},
+  publisher = {Kodansha},
+  year      = {2026},
+  address   = {Tokyo, Japan},
+  isbn      = {978-4-06-540145-3},
+  series    = {KS Joho Kagaku Senmonsho},
+  language  = {Japanese},
+  url       = {https://www.kspub.co.jp/book/detail/5401453.html}
+}
+
+# *今後の SARの発展と利活用の推進になれば幸いです*
