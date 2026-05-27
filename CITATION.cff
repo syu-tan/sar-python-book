@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the accompanying book."
+title: "sar-python-book"
+type: software
+authors:
+  - family-names: "Yasui"
+    given-names: "Syusuke"
+  - family-names: "Sato"
+    given-names: "Koichi"
+  - family-names: "Fujiwara"
+    given-names: "Hiroaki"
+repository-code: "https://github.com/syu-tan/sar-python-book"
+url: "https://github.com/syu-tan/sar-python-book"
+
+preferred-citation:
+  type: book
+  authors:
+    - family-names: "Yasui"
+      given-names: "Syusuke"
+    - family-names: "Sato"
+      given-names: "Koichi"
+    - family-names: "Fujiwara"
+      given-names: "Hiroaki"
+  title: "SAR eisei data kaiseki nyumon [Introduction to SAR Satellite Data Analysis]"
+  year: 2026
+  publisher:
+    name: "Kodansha"
+  identifiers:
+    - type: isbn
+      value: "978-4-06-540145-3"
+  url: "https://www.kspub.co.jp/book/detail/5401453.html"
