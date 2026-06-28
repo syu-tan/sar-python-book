@@ -23,6 +23,7 @@
 | P.13 | **図1.1.25** 下から二番目の図 凡例: `Peak` | **図1.1.25** 下から二番目の図 凡例: `Peck` |
 | P.13 | **図1.1.25** 一番下の図 縦軸: `Spectrum` | 図1.1.25 一番下の図 縦軸: `Spectum` |
 | P.81 | **図1.4.40** 左から二番目の図 タイトル: `Ambiguity Distance from Real Object [m]` | **図1.4.40** 左から二番目の図 タイトル: `Ambiguity Distnace from Real Object [m]` |
+| P.98 | **1.5.2** 数式 `(1.21)` ![coherence 修正後](figure/coherence_post.png) | **1.5.2** 数式 `(1.21)`  ![coherence 修正前](figure/coherence_pre.png) |
 | P.148 | **図1.5.85** 凡例: `Observation` | **図1.5.85** 凡例: `Obsevation` |
 | P.149 | **図1.5.88** 凡例: `Observation` | **図1.5.88** 凡例: `Obsevation` |
 | P.150 | **図1.5.89** 凡例: `Observation` | **図1.5.89** 凡例: `Obsevation` |
