@@ -1,4 +1,17 @@
+# 基本環境 GPU: NVIDIA TRX 3090, CUDA: 11.6.1, cuDNN: 8.3.2, PyTorch: 1.12.0a0+2c916ef
+# リリースノート: https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel_22-03.html
 FROM nvcr.io/nvidia/pytorch:22.03-py3
+
+# 新しい世代の GPU 
+## RTX 40x0
+# https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-10.html
+# FROM nvcr.io/nvidia/pytorch:23.10-py3
+## RTX 50x0
+# nvcr.io/nvidia/pytorch:25.01-py3
+# FROM nvcr.io/nvidia/pytorch:25.01-py3
+## 現状の最新
+# https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-26-05.html
+# FROM nvcr.io/nvidia/pytorch:26.05-py3
 
 # 基本設定
 ENV DEBIAN_FRONTEND=noninteractive

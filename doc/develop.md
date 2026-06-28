@@ -110,6 +110,11 @@ docker run -it --ipc host --rm \
 
 VSCode の拡張機能で [Dev Containar](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) と [Jupyter Notebook](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) 機能を追加して仮想環境内で操作することをおすすめします。
 
+### 新しい GPU による動作
+新しい世代の Nvidia GPU を使用する場合は、新しい世代に合わせた Driver, CUDA, PyTroch が必要になります。
+
+参考までに、[Dockerfile](../env/Dockerfile) のイメージリストにコメントで追加しております。しかし、動作を保証するものではありません。
+
 
 ### 環境確認方法
 
@@ -205,12 +210,13 @@ PyTorch の CUDA のバージョン調整や過去バージョンを適用させ
 ## 動作確認環境
 
 MMシリーズは Nvidia GPU を使用しているために Linux のみ動作確認しております。
+動作確認を実施した GPU は RTX 3090 と Tesla T4, RTX A6000 のみです。
 
 | マシン概要   | OS               | メモリ | CPU                 | ストレージ | 備考                                               |
 | ------------ | ---------------- | ------ | ------------------- | ---------- | -------------------------------------------------- |
 | Mac Book Air | OSX              | 16GB   | アップルシリコン M4 | 1T         | ALOS-2 干渉非動作(メモリ不足), ALOS 干渉動作未確認 |
 | Mac Book Pro | OSX              | 36GB   | アップルシリコン M3 | 1T         | ALOS-2 干渉非動作(メモリ不足)                      |
-| Linux BTO    | Ubuntu 22.04 LTS | 128GB  | AMP 16 Core         | 2T         |                                                    |
+| Linux BTO    | Ubuntu 22.04 LTS | 128GB  | AMP 16 Core         | 2T         | RTX A6000, RTX3090                      |
 | Linux Cloud  | Amazon Linux     | 384GB  | ----                | 2T         | ----                                               |
 | Windows WSL2    | Ubuntu 22.04 LTS  | 128GB     | 13th Gen Intel(R) Core(TM) i7-13700K  | 1T          | Docker Engine: 29.1.3 <br> Docker Desktop: 4.55.0 |
 
